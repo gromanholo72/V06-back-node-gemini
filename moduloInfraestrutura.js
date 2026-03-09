@@ -5,14 +5,14 @@ import cors from "cors";
 // import helmet from "helmet";
 
 
-// console.log(""); 
-// console.log("🏗️  -------------------------------------------------------------------"); 
-// console.log("🏗️  1. INFRAESTRUTURA: IMPORTAÇÃO DE MÓDULOS ✅"); 
-// console.log("🏗️  arquivo - moduloInfraestrutura.js");
-// console.log("🏗️  -------------------------------------------------------------------"); 
-// console.log("🏗️  express = ", express ? "✅ Carregado" : "❌ Erro");
-// console.log("🏗️  cors = ", cors ? "✅ Carregado" : "❌ Erro");
-// console.log("🏗️  -------------------------------------------------------------------"); 
+console.log(""); 
+console.log("🏗️  -------------------------------------------------------------------"); 
+console.log("🏗️  1. INFRAESTRUTURA: IMPORTAÇÃO DE MÓDULOS ✅"); 
+console.log("🏗️  arquivo - moduloInfraestrutura.js");
+console.log("🏗️  -------------------------------------------------------------------"); 
+console.log("🏗️  express = ", express ? "✅ Carregado" : "❌ Erro");
+console.log("🏗️  cors = ", cors ? "✅ Carregado" : "❌ Erro");
+console.log("🏗️  -------------------------------------------------------------------"); 
 
 
 
@@ -50,16 +50,16 @@ export const  moduloInfraestrutura = (app, db_admin) => {
 
   app.use(cors()); 
 
-//   console.log(""); 
-//   console.log("🛡️  -------------------------------------------------------------------");
-//   console.log("🛡️  2. SEGURANÇA (CORS) = ✅ Porteiro Liberado!"); 
-//   console.log("🛡️  arquivo - moduloInfraestrutura.js");
-//   console.log("🛡️  -------------------------------------------------------------------");
-//   console.log("🛡️  Identidade do Middleware = ", cors.name || "corsMiddleware");
-//   console.log("🛡️  Tipo de Função = ", typeof cors); 
-//   console.log("🛡️  Roteador Vinculado = ", app._router ? "✅ Sim" : "❌ Aguardando");
-//   console.log("🛡️  Configuração Custom = ", cors.length > 0 ? "⚠️ Ativa" : "✅ Padrão");
-//   console.log("🛡️  -------------------------------------------------------------------");
+  console.log(""); 
+  console.log("🛡️  -------------------------------------------------------------------");
+  console.log("🛡️  2. SEGURANÇA (CORS) = ✅ Porteiro Liberado!"); 
+  console.log("🛡️  arquivo - moduloInfraestrutura.js");
+  console.log("🛡️  -------------------------------------------------------------------");
+  console.log("🛡️  Identidade do Middleware = ", cors.name || "corsMiddleware");
+  console.log("🛡️  Tipo de Função = ", typeof cors); 
+  console.log("🛡️  Roteador Vinculado = ", app._router ? "✅ Sim" : "❌ Aguardando");
+  console.log("🛡️  Configuração Custom = ", cors.length > 0 ? "⚠️ Ativa" : "✅ Padrão");
+  console.log("🛡️  -------------------------------------------------------------------");
 
 
   // 🚨 🛡️ RESERVA TÉCNICA (EXECUÇÃO FUTURA: RATE LIMIT)
@@ -78,16 +78,16 @@ export const  moduloInfraestrutura = (app, db_admin) => {
 
   app.use(motorJson); 
 
-//   console.log(""); 
-//   console.log("📄 -------------------------------------------------------------------");
-//   console.log("📄  3. LOGÍSTICA (JSON) = ✅ Tradutor de Dados Pronto!");
-//   console.log("📄  arquivo - moduloInfraestrutura.js"); 
-//   console.log("📄 -------------------------------------------------------------------");
-//   console.log("📄  Motor JSON Type = ", tipoMotor); 
-//   console.log("📄  Configuração Ativa = ", nomeMotor);
-//   console.log("📄  Limite de Carga Body = ", "1mb (Padrão)");
-//   console.log("📄  Verificação de Tipos = ", "✅ application/json");
-//   console.log("📄 -------------------------------------------------------------------");
+  console.log(""); 
+  console.log("📄 -------------------------------------------------------------------");
+  console.log("📄  3. LOGÍSTICA (JSON) = ✅ Tradutor de Dados Pronto!");
+  console.log("📄  arquivo - moduloInfraestrutura.js"); 
+  console.log("📄 -------------------------------------------------------------------");
+  console.log("📄  Motor JSON Type = ", tipoMotor); 
+  console.log("📄  Configuração Ativa = ", nomeMotor);
+  console.log("📄  Limite de Carga Body = ", "1mb (Padrão)");
+  console.log("📄  Verificação de Tipos = ", "✅ application/json");
+  console.log("📄 -------------------------------------------------------------------");
 
 
 
@@ -366,15 +366,15 @@ app.get('/dados-dos-cards-aberto', async (req, res) => {
 
 
 
-// console.log(""); 
-// console.log("📢 -------------------------------------------------------------------"); 
-// console.log("📢 5. STATUS: CONFERÊNCIA FINAL DA ESTRUTURA ✅"); 
-// console.log("📢 arquivo - moduloInfraestrutura.js");
-// console.log("📢 -------------------------------------------------------------------"); 
-// console.log("📢 Middlewares Ativos = ", app._router?.stack?.length || "⚠️ Analisando...");
-// console.log("📢 Modo de Operação = ", app.get('env') || "development");
-// console.log("📢 Handover da Instância = ✅ Operacional");
-// console.log("📢 -------------------------------------------------------------------");  
+console.log(""); 
+console.log("📢 -------------------------------------------------------------------"); 
+console.log("📢 5. STATUS: CONFERÊNCIA FINAL DA ESTRUTURA ✅"); 
+console.log("📢 arquivo - moduloInfraestrutura.js");
+console.log("📢 -------------------------------------------------------------------"); 
+console.log("📢 Middlewares Ativos = ", app._router?.stack?.length || "⚠️ Analisando...");
+console.log("📢 Modo de Operação = ", app.get('env') || "development");
+console.log("📢 Handover da Instância = ✅ Operacional");
+console.log("📢 -------------------------------------------------------------------");  
 
 
 };

@@ -20,17 +20,17 @@ import { moduloInfraestrutura } from "./moduloInfraestrutura.js";
 
 
 
-// console.log(""); 
-// console.log("-----------------------------------------------"); 
-// console.log("🔵 1. IMPORTAÇÃO DOS MÓDULOS ✅"); 
-// console.log("🔵 arquivo - server.js");
-// console.log("🔵 -----------------------------------------------"); 
-// console.log("🔵 express        = ", typeof express === 'function' ? "✅ Pronto" : "❌ Erro");
-// console.log("🔵 socket/http    = ", typeof createServer === 'function' ? "✅ Pronto" : "❌ Erro");
-// console.log("🔵 firebase_init  = ", typeof inicializarFirebase === 'function' ? "✅ Pronto" : "❌ Erro");
-// console.log("🔵 modulo_socket  = ", typeof moduloSocketIo === 'function' ? "✅ Pronto" : "❌ Erro");
-// console.log("🔵 modulo_infra   = ", typeof moduloInfraestrutura === 'function' ? "✅ Pronto" : "❌ Erro");
-// console.log("-----------------------------------------------");
+console.log(""); 
+console.log("-----------------------------------------------"); 
+console.log("🔵 1. IMPORTAÇÃO DOS MÓDULOS ✅"); 
+console.log("🔵 arquivo - server.js");
+console.log("🔵 -----------------------------------------------"); 
+console.log("🔵 express        = ", typeof express === 'function' ? "✅ Pronto" : "❌ Erro");
+console.log("🔵 socket/http    = ", typeof createServer === 'function' ? "✅ Pronto" : "❌ Erro");
+console.log("🔵 firebase_init  = ", typeof inicializarFirebase === 'function' ? "✅ Pronto" : "❌ Erro");
+console.log("🔵 modulo_socket  = ", typeof moduloSocketIo === 'function' ? "✅ Pronto" : "❌ Erro");
+console.log("🔵 modulo_infra   = ", typeof moduloInfraestrutura === 'function' ? "✅ Pronto" : "❌ Erro");
+console.log("-----------------------------------------------");
 
 
 
@@ -53,13 +53,13 @@ console.log("📐 -----------------------------------------------------------");
 
 const app = express();
 
-// console.log(""); 
-// console.log("🔵 -----------------------------------------------"); 
-// console.log("🔵 2. CONFIGURAÇÃO: LOGÍSTICA E INFRAESTRUTURA ✅"); 
-// console.log("🔵 arquivo - server.js");
-// console.log("🔵 -----------------------------------------------"); 
-// console.log("🔵 app (express) = ", app ? "✅ Instância Pronta" : "❌ Erro");
-// console.log("🔵 -----------------------------------------------");
+console.log(""); 
+console.log("🔵 -----------------------------------------------"); 
+console.log("🔵 2. CONFIGURAÇÃO: LOGÍSTICA E INFRAESTRUTURA ✅"); 
+console.log("🔵 arquivo - server.js");
+console.log("🔵 -----------------------------------------------"); 
+console.log("🔵 app (express) = ", app ? "✅ Instância Pronta" : "❌ Erro");
+console.log("🔵 -----------------------------------------------");
 
 
 
@@ -80,20 +80,20 @@ const pathConfigurado = io.opts?.path || "/socket.io"; // Onde o rádio está si
 const servindoEstáticos = io._serveClient ? "✅ Sim" : "❌ Não"; // Se ele entrega o arquivo JS automático
 const namespacePrincipal = io.sockets?.name || "/"; // O canal principal de comunicação
 
-// console.log(""); 
-// console.log("🔵 ---------------------------------------------------------"); 
-// console.log("🔵 3. COMUNICAÇÃO: ENGINE DE TEMPO REAL (socketIo) ✅"); 
-// console.log("🔵 arquivo - server.js");
-// console.log("🔵 ---------------------------------------------------------");
-// console.log("🔵 httpServer = ", httpServer ? "✅ Servidor HTTP Pronto" : "❌ Erro");
-// console.log("🔵 io (Socket.io) = ", io ? "✅ Canal Aberto" : "❌ Erro");
-// console.log("🔵 Clientes Online  = ", totalDeConexoes);
-// console.log("🔵 Rota de Escuta   = ", pathConfigurado);
-// console.log("🔵 Servir Cliente   = ", servindoEstáticos);
-// console.log("🔵 Namespace Base   = ", namespacePrincipal);
-// console.log("🔵 Protocolos Adm   = ", "WebSocket + Polling");
-// console.log("🔵 infra (CORS/JSON) = ✅ Infraestrutura Liberada");
-// console.log("🔵 ---------------------------------------------------------");
+console.log(""); 
+console.log("🔵 ---------------------------------------------------------"); 
+console.log("🔵 3. COMUNICAÇÃO: ENGINE DE TEMPO REAL (socketIo) ✅"); 
+console.log("🔵 arquivo - server.js");
+console.log("🔵 ---------------------------------------------------------");
+console.log("🔵 httpServer = ", httpServer ? "✅ Servidor HTTP Pronto" : "❌ Erro");
+console.log("🔵 io (Socket.io) = ", io ? "✅ Canal Aberto" : "❌ Erro");
+console.log("🔵 Clientes Online  = ", totalDeConexoes);
+console.log("🔵 Rota de Escuta   = ", pathConfigurado);
+console.log("🔵 Servir Cliente   = ", servindoEstáticos);
+console.log("🔵 Namespace Base   = ", namespacePrincipal);
+console.log("🔵 Protocolos Adm   = ", "WebSocket + Polling");
+console.log("🔵 infra (CORS/JSON) = ✅ Infraestrutura Liberada");
+console.log("🔵 ---------------------------------------------------------");
 
 
 
