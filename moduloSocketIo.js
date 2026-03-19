@@ -10,6 +10,8 @@ export const moduloSocketIo = (serverHttp) => {
 
       
 
+      
+
 
       /* 🚀 Inicializando o Servidor de Mensagens (Socket.io) */
       const io = new Server(serverHttp, {
@@ -20,24 +22,7 @@ export const moduloSocketIo = (serverHttp) => {
             }
       });
 
-      /* 🚀 CONSOLE DE INSPEÇÃO MAESTRO - BACKEND */
-      console.log("");
-      console.log("🔍 -----------------------------------------------------------");
-      console.log("🔍 INSPEÇÃO DE INFRAESTRUTURA (Socket.io Server)");
-      console.log("🔍 Status do Servidor : ✅ Inicializado com Sucesso");
-      console.log("🔍 Política de CORS   : 🌐 Liberada (origin: *)");
-      console.log("🔍 Métodos Permitidos : [GET, POST]");
-      console.log("🔍 -----------------------------------------------------------");
-
-      /* Monitorando Conexões em Tempo Real */
-      io.on("connection", (socket) => {
-            console.log(`🔌 Novo dispositivo conectado: ID [${socket.id}]`);
-            
-            socket.on("disconnect", () => {
-                  console.log(`❌ Dispositivo desconectado: ID [${socket.id}]`);
-            });
-      });
-
+      
 
 
 

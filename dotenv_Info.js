@@ -12,7 +12,7 @@ if (process.env.NODE_ENV !== 'production') {
       dotenv.config();
 
       nomeSistema = "Versao 02 - Desenvolvimento - meu computador";
-      ipLocalRede = "192.168.15.7";
+      ipLocalRede = "192.168.15.4";
 
       // console.log(""); 
       // console.log("👑 -------------------------------------------------------------------"); 
@@ -55,25 +55,25 @@ const fusoHorarioLocal = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 // 👑 CONSOLE DE INSPEÇÃO DE LOGÍSTICA
 
-console.log("");
-console.log("👑 -------------------------------------------------------------------");
-console.log("👑 🏷️  nomeSistema          = ", nomeSistema);
-console.log("👑 🌐 ipLocalRede          = ", ipLocalRede);
-console.log("👑 🔌 portaServidor        = ", portaServidor);
-console.log("👑 -------------------------------------------------------------------"); 
-console.log("👑 🗄️  databaseUrlFirebase  = ", databaseUrlFirebase);
-console.log("👑 🗝️  databaseChaveAdminFirebase    = ", databaseChaveAdminFirebase);
-console.log("👑 -------------------------------------------------------------------");
-console.log("👑 ⚙️  Motor Node      = ", versaoNodeMotor);
-console.log("👑 💻 Plataforma      = ", sistemaOperacional);
-console.log("👑 ⚡ CPU             = ", modeloCPU);
-console.log("👑 🧠 Memória RAM     = ", memoriaConsumida);
-console.log("👑 ⏱️  Uptime          = ", tempoAtividade);
-console.log("👑 🆔 Processo PID    = ", idProcessoPID);
-console.log("👑 ⏰ Fuso Horário    = ", fusoHorarioLocal);
-console.log("👑 📂 Diretório       = ", diretorioCanteiro);
-console.log("👑 🏁 Logística       = ✅ Monitoramento Ativo");
-console.log("👑 -------------------------------------------------------------------");
+// console.log("");
+// console.log("👑 -------------------------------------------------------------------");
+// console.log("👑 🏷️  nomeSistema          = ", nomeSistema);
+// console.log("👑 🌐 ipLocalRede          = ", ipLocalRede);
+// console.log("👑 🔌 portaServidor        = ", portaServidor);
+// console.log("👑 -------------------------------------------------------------------"); 
+// console.log("👑 🗄️  databaseUrlFirebase  = ", databaseUrlFirebase);
+// console.log("👑 🗝️  databaseChaveAdminFirebase    = ", databaseChaveAdminFirebase);
+// console.log("👑 -------------------------------------------------------------------");
+// console.log("👑 ⚙️  Motor Node      = ", versaoNodeMotor);
+// console.log("👑 💻 Plataforma      = ", sistemaOperacional);
+// console.log("👑 ⚡ CPU             = ", modeloCPU);
+// console.log("👑 🧠 Memória RAM     = ", memoriaConsumida);
+// console.log("👑 ⏱️  Uptime          = ", tempoAtividade);
+// console.log("👑 🆔 Processo PID    = ", idProcessoPID);
+// console.log("👑 ⏰ Fuso Horário    = ", fusoHorarioLocal);
+// console.log("👑 📂 Diretório       = ", diretorioCanteiro);
+// console.log("👑 🏁 Logística       = ✅ Monitoramento Ativo");
+// console.log("👑 -------------------------------------------------------------------");
 
 
 
