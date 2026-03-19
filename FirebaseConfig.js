@@ -16,14 +16,14 @@ export const inicializarFirebase = () => {
 
     try {
 
-    //   console.log("");
-    //   console.log("🔍 -----------------------------------------------------------");
-    //   console.log("🔍 INSPEÇÃO DE SUPRIMENTOS PARA O BANCO DE DADOS");
-    //   console.log("🔍 arquivo - FirebaseConfig.js");
-    //   console.log("🔍 -----------------------------------------------------------");
-    //   console.log("🔍 databaseUrlFirebase:", databaseUrlFirebase);
-    //   console.log("🔍 databaseChaveAdminFirebase  :", databaseChaveAdminFirebase ? "✅ Recebida" : "❌ Vazia");
-    //   console.log("🔍 -----------------------------------------------------------");
+      console.log("");
+      console.log("🔍 -----------------------------------------------------------");
+      console.log("🔍 INSPEÇÃO DE SUPRIMENTOS PARA O BANCO DE DADOS");
+      console.log("🔍 arquivo - FirebaseConfig.js");
+      console.log("🔍 -----------------------------------------------------------");
+      console.log("🔍 databaseUrlFirebase:", databaseUrlFirebase);
+      console.log("🔍 databaseChaveAdminFirebase  :", databaseChaveAdminFirebase ? "✅ Recebida" : "❌ Vazia");
+      console.log("🔍 -----------------------------------------------------------");
 
         if (!admin.apps.length) {
             

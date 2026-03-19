@@ -2,18 +2,15 @@ import express from "express";
 import cors from "cors";
 
 
-// 🛡️ 🏗️ RESERVA TÉCNICA (IMPORTAÇÃO FUTURA: BLINDAGEM HELMET)
-// import helmet from "helmet";
 
-
-// console.log(""); 
-// console.log("🏗️  -------------------------------------------------------------------"); 
-// console.log("🏗️  1. INFRAESTRUTURA: IMPORTAÇÃO DE MÓDULOS ✅"); 
-// console.log("🏗️  arquivo - moduloInfraestrutura.js");
-// console.log("🏗️  -------------------------------------------------------------------"); 
-// console.log("🏗️  express = ", express ? "✅ Carregado" : "❌ Erro");
-// console.log("🏗️  cors = ", cors ? "✅ Carregado" : "❌ Erro");
-// console.log("🏗️  -------------------------------------------------------------------"); 
+console.log(""); 
+console.log("🏗️  -------------------------------------------------------------------"); 
+console.log("🏗️  1. INFRAESTRUTURA: IMPORTAÇÃO DE MÓDULOS ✅"); 
+console.log("🏗️  arquivo - moduloInfraestrutura.js");
+console.log("🏗️  -------------------------------------------------------------------"); 
+console.log("🏗️  express = ", express ? "✅ Carregado" : "❌ Erro");
+console.log("🏗️  cors = ", cors ? "✅ Carregado" : "❌ Erro");
+console.log("🏗️  -------------------------------------------------------------------"); 
 
 
 
@@ -26,12 +23,12 @@ import cors from "cors";
 export const  moduloInfraestrutura = (app, db_admin) => {
 
 
-//   console.log("");
-//   console.log("🏗️  -----------------------------------------------------------");
-//   console.log("🏗️  MÓDULO: INFRAESTRUTURA (Checagem de Recebimento)");
-//   console.log("🏗️  app (Express) : ", app ? "✅ Recebido" : "❌ Ausente");
-//   console.log("🏗️  db_admin (FB) : ", db_admin ? "✅ Recebido e Pronto" : "❌ ERRO: Banco não chegou");
-//   console.log("🏗️  -----------------------------------------------------------");
+  console.log("");
+  console.log("🏗️  -----------------------------------------------------------");
+  console.log("🏗️  MÓDULO: INFRAESTRUTURA (Checagem de Recebimento)");
+  console.log("🏗️  app (Express) : ", app ? "✅ Recebido" : "❌ Ausente");
+  console.log("🏗️  db_admin (FB) : ", db_admin ? "✅ Recebido e Pronto" : "❌ ERRO: Banco não chegou");
+  console.log("🏗️  -----------------------------------------------------------");
 
 
 
@@ -40,21 +37,18 @@ export const  moduloInfraestrutura = (app, db_admin) => {
 
   app.use(cors()); 
 
-//   console.log(""); 
-//   console.log("🛡️  -------------------------------------------------------------------");
-//   console.log("🛡️  2. SEGURANÇA (CORS) = ✅ Porteiro Liberado!"); 
-//   console.log("🛡️  arquivo - moduloInfraestrutura.js");
-//   console.log("🛡️  Identidade do Middleware = ", cors.name || "corsMiddleware");
-//   console.log("🛡️  Tipo de Função = ", typeof cors); 
-//   console.log("🛡️  Roteador Vinculado = ", app._router ? "✅ Sim" : "❌ Aguardando");
-//   console.log("🛡️  Configuração Custom = ", cors.length > 0 ? "⚠️ Ativa" : "✅ Padrão");
-//   console.log("🛡️  -------------------------------------------------------------------");
+  console.log(""); 
+  console.log("🛡️  -------------------------------------------------------------------");
+  console.log("🛡️  2. SEGURANÇA (CORS) = ✅ Porteiro Liberado!"); 
+  console.log("🛡️  arquivo - moduloInfraestrutura.js");
+  console.log("🛡️  Identidade do Middleware = ", cors.name || "corsMiddleware");
+  console.log("🛡️  Tipo de Função = ", typeof cors); 
+  console.log("🛡️  Roteador Vinculado = ", app._router ? "✅ Sim" : "❌ Aguardando");
+  console.log("🛡️  Configuração Custom = ", cors.length > 0 ? "⚠️ Ativa" : "✅ Padrão");
+  console.log("🛡️  -------------------------------------------------------------------");
 
 
-  // 🚨 🛡️ RESERVA TÉCNICA (EXECUÇÃO FUTURA: RATE LIMIT)
-  // const limitador = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
-  // app.use(limitador);
-
+  
 
 
 
@@ -67,15 +61,15 @@ export const  moduloInfraestrutura = (app, db_admin) => {
 
   app.use(motorJson); 
 
-//   console.log(""); 
-//   console.log("📄 -------------------------------------------------------------------");
-//   console.log("📄  3. LOGÍSTICA (JSON) = ✅ Tradutor de Dados Pronto!");
-//   console.log("📄  arquivo - moduloInfraestrutura.js"); 
-//   console.log("📄  Motor JSON Type = ", tipoMotor); 
-//   console.log("📄  Configuração Ativa = ", nomeMotor);
-//   console.log("📄  Limite de Carga Body = ", "1mb (Padrão)");
-//   console.log("📄  Verificação de Tipos = ", "✅ application/json");
-//   console.log("📄 -------------------------------------------------------------------");
+  console.log(""); 
+  console.log("📄 -------------------------------------------------------------------");
+  console.log("📄  3. LOGÍSTICA (JSON) = ✅ Tradutor de Dados Pronto!");
+  console.log("📄  arquivo - moduloInfraestrutura.js"); 
+  console.log("📄  Motor JSON Type = ", tipoMotor); 
+  console.log("📄  Configuração Ativa = ", nomeMotor);
+  console.log("📄  Limite de Carga Body = ", "1mb (Padrão)");
+  console.log("📄  Verificação de Tipos = ", "✅ application/json");
+  console.log("📄 -------------------------------------------------------------------");
 
 
 
@@ -224,7 +218,6 @@ export const  moduloInfraestrutura = (app, db_admin) => {
 
 app.post('/usuario/cadastrar/dados-bas-seg-int', async (req, res) => {
    
-    // 📐 Adaptação: O Frontend envia um objeto estruturado (dadosUsuario), não variáveis soltas.
     // Desestruturamos os sub-objetos para processar.
     const { dadosBasico, dadosSeguranca, dadosInterno } = req.body;
 
@@ -264,9 +257,7 @@ app.post('/usuario/cadastrar/dados-bas-seg-int', async (req, res) => {
             return res.status(409).json({ erro: "Este CPF já possui um cadastro ativo." });
         }
 
-        // 3. Persistência de Dados (Construção da Fundação)
-        // 📐 Aplicando a Nova Estrutura de Pastas (Sub-objetos)
-        // Reconstruímos o objeto para garantir que apenas dados sanitizados entrem no banco
+
         const novoCadastro = {
 
             dadosBasico: dadosBasico, 
@@ -360,7 +351,6 @@ app.post('/atualizar-contato', async (req, res) => {
 
 
 // 📍 ROTA NA VPS PARA ATUALIZAR ENDEREÇO
-// Recebe POST do componente Endereco.jsx
 app.post('/atualizar-endereco', async (req, res) => {
     
     const { cpef, dadosEndereco } = req.body;
@@ -524,15 +514,15 @@ app.get('/dados-dos-cards-aberto', async (req, res) => {
 
 
 
-// console.log(""); 
-// console.log("📢 -------------------------------------------------------------------"); 
-// console.log("📢 5. STATUS: CONFERÊNCIA FINAL DA ESTRUTURA ✅"); 
-// console.log("📢 arquivo - moduloInfraestrutura.js");
-// console.log("📢 -------------------------------------------------------------------"); 
-// console.log("📢 Middlewares Ativos = ", app._router?.stack?.length || "⚠️ Analisando...");
-// console.log("📢 Modo de Operação = ", app.get('env') || "development");
-// console.log("📢 Handover da Instância = ✅ Operacional");
-// console.log("📢 -------------------------------------------------------------------");  
+console.log(""); 
+console.log("📢 -------------------------------------------------------------------"); 
+console.log("📢 5. STATUS: CONFERÊNCIA FINAL DA ESTRUTURA ✅"); 
+console.log("📢 arquivo - moduloInfraestrutura.js");
+console.log("📢 -------------------------------------------------------------------"); 
+console.log("📢 Middlewares Ativos = ", app._router?.stack?.length || "⚠️ Analisando...");
+console.log("📢 Modo de Operação = ", app.get('env') || "development");
+console.log("📢 Handover da Instância = ✅ Operacional");
+console.log("📢 -------------------------------------------------------------------");  
 
 
 };

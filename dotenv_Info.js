@@ -14,22 +14,22 @@ if (process.env.NODE_ENV !== 'production') {
       nomeSistema = "Versao 02 - Desenvolvimento - meu computador";
       ipLocalRede = "192.168.15.4";
 
-      // console.log(""); 
-      // console.log("👑 -------------------------------------------------------------------"); 
-      // console.log("👑 📦 0. LOGÍSTICA: CARREGAMENTO DE SUPRIMENTOS (.env) ✅"); 
-      // console.log("👑  arquivo - dotenv_Info.js");
-      // console.log("👑 🔵 Gerador Local Ativado: Modo Desenvolvimento");
+      console.log(""); 
+      console.log("👑 -------------------------------------------------------------------"); 
+      console.log("👑 📦 0. LOGÍSTICA: CARREGAMENTO DE SUPRIMENTOS (.env) ✅"); 
+      console.log("👑  arquivo - dotenv_Info.js");
+      console.log("👑 🔵 Gerador Local Ativado: Modo Desenvolvimento");
 
 } else {
 
       nomeSistema = "Versao 02 - Producao - Servidor externo";
       ipLocalRede = "0.0.0.0";
 
-      // console.log(""); 
-      // console.log("👑 -------------------------------------------------------------------"); 
-      // console.log("👑 📦 0. LOGÍSTICA: CARREGAMENTO DE SUPRIMENTOS (.env) ✅"); 
-      // console.log("👑  arquivo - dotenv_Info.js");
-      // console.log("👑 🔴 Gerador de Nuvem Ativado: Modo Produção");
+      console.log(""); 
+      console.log("👑 -------------------------------------------------------------------"); 
+      console.log("👑 📦 0. LOGÍSTICA: CARREGAMENTO DE SUPRIMENTOS (.env) ✅"); 
+      console.log("👑  arquivo - dotenv_Info.js");
+      console.log("👑 🔴 Gerador de Nuvem Ativado: Modo Produção");
 
 }
 
@@ -53,27 +53,26 @@ const tempoAtividade = `${Math.round(process.uptime())}s`; // NOVO: Tá ligado h
 const diretorioCanteiro = process.cwd();
 const fusoHorarioLocal = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-// 👑 CONSOLE DE INSPEÇÃO DE LOGÍSTICA
 
-// console.log("");
-// console.log("👑 -------------------------------------------------------------------");
-// console.log("👑 🏷️  nomeSistema          = ", nomeSistema);
-// console.log("👑 🌐 ipLocalRede          = ", ipLocalRede);
-// console.log("👑 🔌 portaServidor        = ", portaServidor);
-// console.log("👑 -------------------------------------------------------------------"); 
-// console.log("👑 🗄️  databaseUrlFirebase  = ", databaseUrlFirebase);
-// console.log("👑 🗝️  databaseChaveAdminFirebase    = ", databaseChaveAdminFirebase);
-// console.log("👑 -------------------------------------------------------------------");
-// console.log("👑 ⚙️  Motor Node      = ", versaoNodeMotor);
-// console.log("👑 💻 Plataforma      = ", sistemaOperacional);
-// console.log("👑 ⚡ CPU             = ", modeloCPU);
-// console.log("👑 🧠 Memória RAM     = ", memoriaConsumida);
-// console.log("👑 ⏱️  Uptime          = ", tempoAtividade);
-// console.log("👑 🆔 Processo PID    = ", idProcessoPID);
-// console.log("👑 ⏰ Fuso Horário    = ", fusoHorarioLocal);
-// console.log("👑 📂 Diretório       = ", diretorioCanteiro);
-// console.log("👑 🏁 Logística       = ✅ Monitoramento Ativo");
-// console.log("👑 -------------------------------------------------------------------");
+console.log("");
+console.log("👑 -------------------------------------------------------------------");
+console.log("👑 🏷️  nomeSistema          = ", nomeSistema);
+console.log("👑 🌐 ipLocalRede          = ", ipLocalRede);
+console.log("👑 🔌 portaServidor        = ", portaServidor);
+console.log("👑 -------------------------------------------------------------------"); 
+console.log("👑 🗄️  databaseUrlFirebase  = ", databaseUrlFirebase);
+console.log("👑 🗝️  databaseChaveAdminFirebase    = ", databaseChaveAdminFirebase);
+console.log("👑 -------------------------------------------------------------------");
+console.log("👑 ⚙️  Motor Node      = ", versaoNodeMotor);
+console.log("👑 💻 Plataforma      = ", sistemaOperacional);
+console.log("👑 ⚡ CPU             = ", modeloCPU);
+console.log("👑 🧠 Memória RAM     = ", memoriaConsumida);
+console.log("👑 ⏱️  Uptime          = ", tempoAtividade);
+console.log("👑 🆔 Processo PID    = ", idProcessoPID);
+console.log("👑 ⏰ Fuso Horário    = ", fusoHorarioLocal);
+console.log("👑 📂 Diretório       = ", diretorioCanteiro);
+console.log("👑 🏁 Logística       = ✅ Monitoramento Ativo");
+console.log("👑 -------------------------------------------------------------------");
 
 
 
