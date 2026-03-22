@@ -209,9 +209,6 @@ export const  moduloInfraestrutura = (app, db_admin) => {
 
 
 
-
-
-
 // --------------------------------
 // INICIO - SOLICITACAO DE CADASTRO
 // --------------------------------
@@ -297,20 +294,7 @@ app.post('/usuario/cadastrar/dados-bas-seg-int', async (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 // 🏠 ROTA NA VPS PARA ATUALIZAR CONTATO
 app.post('/atualizar-contato', async (req, res) => {
 
@@ -339,13 +323,6 @@ app.post('/atualizar-contato', async (req, res) => {
         return res.status(500).json({ erro: "Erro ao processar atualização no servidor." });
     }
 });
-
-
-
-
-
-
-
 
 
 
@@ -384,6 +361,7 @@ app.post('/atualizar-endereco', async (req, res) => {
         });
 
         console.log("📥 📍 ✅ Gravação de Endereço concluída com sucesso na Antena Central.");
+        console.log("📥 📍 ✅ Dados gravados:",dadosEndereco);
         console.log("📥 📍 -----------------------------------------------------------");
         
         // 📥 Resposta de Sucesso (Padrão Maestro)
@@ -410,6 +388,182 @@ app.post('/atualizar-endereco', async (req, res) => {
 
 
 
+
+// 🏢 ROTA NA VPS PARA ATUALIZAR EMPRESA
+app.post('/atualizar-empresa', async (req, res) => {
+    
+    const { cpef, dadosEmpresa } = req.body;
+
+    console.log("");
+    console.log("📥 🏢 -----------------------------------------------------------");
+    console.log("📥 🏢 REQUISIÇÃO RECEBIDA NA VPS: POST /atualizar-empresa");
+    console.log(`📥 🏢 Origem: Componente 🏢 Cnpj.jsx`);
+   
+
+    // 🛡️ Validação de Segurança Básica: CPF é obrigatório
+    if (!cpef) {
+        console.warn("📥 🛑 ⚠️ ALERTA VPS: Tentativa de atualização sem CPF barrada.");
+        return res.status(400).json({ erro: "CPF não identificado na requisição." });
+    }
+
+    // 🛡️ Validação de Integridade: CNPJ é obrigatório no dadosEmpresa
+    if (!dadosEmpresa || !dadosEmpresa.cnpj) {
+        console.warn(`📥 🛑 ⚠️ ALERTA VPS [CPF: ${cpef}]: Dados obrigatórios de empresa (CNPJ) ausentes.`);
+        return res.status(400).json({ erro: "⚠️ O CNPJ é obrigatório!" });
+    }
+
+    try {
+       
+        console.log(`📥 🏢 VPS: Processando atualização de dados da empresa do CPF [${cpef}]`);
+    
+        const usuarioRef = db_admin.ref(`usuarios/${cpef}`);
+        
+        await usuarioRef.update({
+            dadosEmpresa: dadosEmpresa 
+        });
+
+        console.log("📥 🏢 ✅ Gravação de Dados da Empresa concluída com sucesso na Antena Central.");
+        console.log("📥 🏢 ✅ Dados gravados:", dadosEmpresa);
+        console.log("📥 🏢 -----------------------------------------------------------");
+        
+        // 📥 Resposta de Sucesso (Padrão Maestro)
+        return res.status(200).json({ 
+            status: "sucesso",
+            mensagem: "✅ Dados da Empresa sincronizados na Antena Central."
+        });
+
+    } catch (error) {
+        // 📥 🔥 TRATAMENTO DE ERRO CRÍTICO NA VPS
+        console.log("📥 🔥 -----------------------------------------------------------");
+        console.error("📥 🔥 ERRO CRÍTICO NA VPS (Processamento de Empresa):");
+        console.error(`📥 🔥 CPF Alvo: ${cpef}`);
+        console.error("📥 🔥 Detalhes:", error.message);
+        console.log("📥 🔥 -----------------------------------------------------------");
+
+        // Retorna erro 500 para o front-end
+        return res.status(500).json({ 
+            erro: "Erro interno no servidor VPS ao processar a atualização." 
+        });
+    }
+});
+
+
+
+
+// 🎓 ROTA NA VPS PARA ATUALIZAR FORMACAO
+// Recebe POST do componente UsuarioFormacao.jsx
+app.post('/atualizar-formacao', async (req, res) => {
+    
+    // A - Desestruturação do Pacote (Payload) recebido
+    const { cpef, dadosFormacao } = req.body;
+
+    console.log("");
+    console.log("📥 🎓 -----------------------------------------------------------");
+    console.log("📥 🎓 REQUISIÇÃO RECEBIDA NA VPS: POST /atualizar-formacao");
+    console.log("📥 🎓 Origem: Componente 🎓 UsuarioFormacao.jsx");
+   
+
+    // B - 🛡️ Validação de Segurança Básica: CPF é obrigatório
+    if (!cpef) {
+        console.warn("📥 🛑 ⚠️ ALERTA VPS: Tentativa de atualização sem CPF barrada.");
+        return res.status(400).json({ erro: "CPF não identificado na requisição." });
+    }
+
+    // C - 🛡️ Validação de Integridade: Nível é obrigatório
+    if (!dadosFormacao || !dadosFormacao.nivel) {
+        console.warn(`📥 🛑 ⚠️ ALERTA VPS [CPF: ${cpef}]: Dados obrigatórios de Formação (Nível) ausentes.`);
+        return res.status(400).json({ erro: "⚠️ O Nível de formação é obrigatório!" });
+    }
+
+    try {
+        // D - Log de Processamento
+        console.log(`📥 🎓 VPS: Processando atualização de dados de Formação do CPF [${cpef}]`);
+    
+        // E - Conexão Admin SDK (Poder Total)
+        const usuarioRef = db_admin.ref(`usuarios/${cpef}`);
+        
+        // F - Gravação com update() (Preserva nós vizinhos)
+        await usuarioRef.update({
+            dadosFormacao: dadosFormacao 
+        });
+
+        // G - Logs de Sucesso na VPS
+        console.log("📥 🎓 ✅ Gravação de Dados de Formação concluída com sucesso na Antena Central.");
+        console.log("📥 🎓 ✅ Dados gravados:", dadosFormacao);
+        console.log("📥 🎓 -----------------------------------------------------------");
+        
+        // H - Resposta de Sucesso (Padrão Maestro)
+        return res.status(200).json({ 
+            status: "sucesso",
+            mensagem: "✅ Dados de Formação sincronizados na Antena Central."
+        });
+
+    } catch (error) {
+        // I - 🔥 TRATAMENTO DE ERRO CRÍTICO NA VPS
+        console.log("📥 🔥 -----------------------------------------------------------");
+        console.error("📥 🔥 ERRO CRÍTICO NA VPS (Processamento de Formação):");
+        console.error(`📥 🔥 CPF Alvo: ${cpef}`);
+        console.error("📥 🔥 Detalhes:", error.message);
+        console.log("📥 🔥 -----------------------------------------------------------");
+
+        // Retorna erro 500 padronizado para o front-end
+        return res.status(500).json({ 
+            erro: "Erro interno no servidor VPS ao processar a atualização." 
+        });
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 💊 ROTA: ATUALIZAR REMÉDIO DO PACIENTE
+// 🏗️ Recebe o Payload Sagrado: { cpef, dadosPaciente: { remedio: { nome, hora } } }
+app.post('/atualizar-paciente-remedio', async (req, res) => {
+    const { cpef, dadosPaciente } = req.body;
+
+    console.log("");
+    console.log("📥 💊 -----------------------------------------------------------");
+    console.log("📥 💊 REQUISIÇÃO RECEBIDA (Infra): POST /atualizar-paciente-remedio");
+
+    if (!cpef) {
+        return res.status(400).json({ erro: "CPF não identificado." });
+    }
+
+    const dadosRemedio = dadosPaciente?.remedio;
+
+    if (!dadosRemedio || !dadosRemedio.nome || !dadosRemedio.dose || !dadosRemedio.hora) {
+        return res.status(400).json({ erro: "⚠️ Dados de Remédio incompletos." });
+    }
+
+    try {
+        // 📐 No moduloInfraestrutura, usamos 'db_admin' diretamente (parâmetro da função)
+        const usuarioRef = db_admin.ref(`usuarios/${cpef}/dadosPaciente`);
+        
+        // 🧱 MUDANÇA PARA LISTA: Usa push() para adicionar novo item à coleção 'remedios'
+        // O front envia 'remedio' (singular) dentro de dadosPaciente, mas gravamos em 'remedios' (plural/lista)
+        const novoRemedioRef = usuarioRef.child('remedios').push();
+        await novoRemedioRef.set(dadosRemedio);
+
+        console.log(`📥 💊 ✅ Novo Remédio incluído na lista para CPF ${cpef}:`, dadosRemedio);
+        return res.status(200).json({ status: "sucesso", mensagem: "✅ Remédio incluído com sucesso." });
+
+    } catch (error) {
+        console.error(`📥 🔥 ERRO CRÍTICO AO SALVAR REMÉDIO:`, error.message);
+        return res.status(500).json({ erro: "Erro interno ao salvar remédio." });
+    }
+});
 
 
 
@@ -488,6 +642,11 @@ app.get('/dados-dos-cards-aberto', async (req, res) => {
         return res.status(500).json([]);
     }
 });
+
+
+
+
+
 
 
 
