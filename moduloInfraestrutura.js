@@ -526,6 +526,70 @@ app.post('/atualizar-formacao', async (req, res) => {
 
 
 
+// 🏥 ROTA NA VPS PARA ATUALIZAR IDENTIFICAÇÃO DO PACIENTE (GRAVAÇÃO DIRETA)
+app.post('/atualizar-paciente-identificacao', async (req, res) => {
+    
+    const { cpef, dadosPaciente } = req.body;
+
+    console.log("");
+    console.log("📥 🏥 -----------------------------------------------------------");
+    console.log("📥 🏥 REQUISIÇÃO RECEBIDA NA VPS: POST /atualizar-paciente-identificacao");
+    console.log(`📥 🏥 Origem: Componente 👤 PacienteIdentificacao.jsx`);
+   
+    // 🛡️ Validação de Segurança Básica: CPF é obrigatório
+    if (!cpef) {
+        console.warn("📥 🛑 ⚠️ ALERTA VPS: Tentativa de atualização de Identificação sem CPF.");
+        return res.status(400).json({ erro: "CPF não identificado na requisição." });
+    }
+
+    // 🏗️ Extração do sub-bloco de Identificação do Payload Sagrado
+    const dadosIdentificacao = dadosPaciente?.identificacao;
+
+    // 🛡️ Validação de Integridade: Nome e Idade são obrigatórios
+    if (!dadosIdentificacao || !dadosIdentificacao.nome || !dadosIdentificacao.idad) {
+        console.warn(`📥 🛑 ⚠️ ALERTA VPS [CPF: ${cpef}]: Dados de identificação (Nome ou Idade) ausentes.`);
+        return res.status(400).json({ erro: "⚠️ Nome e Idade são obrigatórios!" });
+    }
+
+    try {
+        console.log(`📥 🏥 VPS: Processando gravação direta de Identificação do CPF [${cpef}]`);
+    
+        // 📐 Referência na Antena Central: usuarios/{cpf}/dadosPaciente
+        const usuarioRef = db_admin.ref(`usuarios/${cpef}/dadosPaciente`);
+        
+        // 💾 GRAVAÇÃO DIRETA: Sobrescreve o nó 'identificacao' sem gerar IDs aleatórios
+        await usuarioRef.update({
+            identificacao: dadosIdentificacao 
+        });
+
+        console.log("📥 🏥 ✅ Gravação de Identificação concluída na Antena Central.");
+        console.log("📥 🏥 ✅ Dados gravados:", dadosIdentificacao);
+        console.log("📥 🏥 -----------------------------------------------------------");
+        
+        // 📥 Resposta de Sucesso (Padrão Maestro)
+        return res.status(200).json({ 
+            status: "sucesso",
+            mensagem: "✅ Identificação sincronizada na Antena Central."
+        });
+
+    } catch (error) {
+        // 📥 🔥 TRATAMENTO DE ERRO CRÍTICO NA VPS
+        console.log("📥 🔥 -----------------------------------------------------------");
+        console.error("📥 🔥 ERRO CRÍTICO NA VPS (Processamento de Identificação):");
+        console.error(`📥 🔥 CPF Alvo: ${cpef}`);
+        console.error("📥 🔥 Detalhes:", error.message);
+        console.log("📥 🔥 -----------------------------------------------------------");
+
+        return res.status(500).json({ 
+            erro: "Erro interno no servidor VPS ao processar a identificação." 
+        });
+    }
+});
+
+
+
+
+
 
 
 // 💊 ROTA: ATUALIZAR REMÉDIO DO PACIENTE
