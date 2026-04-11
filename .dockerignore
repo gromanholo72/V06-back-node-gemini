@@ -1,4 +1,16 @@
+# Ignora a pasta de dependências local (o servidor vai instalar as dele)
 node_modules
+
+# Ignora logs de erro
 npm-debug.log
+
+# Ignora pastas de controle de versão
 .git
+.gitignore
+
+# Ignora arquivos de ambiente local (para usar as variáveis do painel do servidor)
 .env
+
+# Ignora o próprio Dockerfile
+Dockerfile
+.dockerignore
