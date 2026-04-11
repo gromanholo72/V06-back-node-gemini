@@ -35,7 +35,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 
 // Porta do servidor
-const PORT = process.env.PORT || 3001; 
+const PORT = process.env.PORT || 3000; 
 
 // 2. SUPRIMENTOS URL FIREBASE
 const DATABASE_URL_FIREBASE = "https://react-vite01-644c9-default-rtdb.firebaseio.com/";
