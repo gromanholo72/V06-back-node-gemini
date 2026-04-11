@@ -1,20 +1,20 @@
-# 🏗️ Usando a versão estável do Node
-FROM node:20
+FROM node:20-slim
 
-# 📂 Definindo o canteiro de trabalho
 WORKDIR /usr/src/app
 
-# 📦 Copiando os manifestos de suprimentos
-COPY package*.json ./
+# Copia apenas os manifestos primeiro (Cache inteligente)
+COPY package.json package-lock.json* ./
 
-# 🛠️ Instalando dependências (incluindo o cross-env que está em dependencies)
-RUN npm install --omit=dev
+# Instala tudo, incluindo o cross-env
+RUN npm install
 
-# 🚚 Copiando o restante dos materiais da obra
+# Copia o resto
 COPY . .
 
-# 🔌 Porta padrão (Lembre-se: o host pode sobrescrever isso com process.env.PORT)
+# Garante que o arquivo server.js tenha permissão de leitura
+RUN chmod +x server.js
+
 EXPOSE 3000
 
-# 🚀 Iniciando com o script oficial do seu package.json
-CMD ["npm", "start"]
+# Tente rodar direto para testar se o problema é o npm
+CMD ["node", "server.js"]
