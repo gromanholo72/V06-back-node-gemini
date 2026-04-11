@@ -7,7 +7,7 @@ import fs from 'fs';
 import admin from "firebase-admin";
 
 // 📦 Importamos os suprimentos já validados pela Coroa 👑
-import { databaseUrlFirebase, databaseChaveAdminFirebase } from "./dotenv_Info.js";
+import { DATABASE_URL_FIREBASE, DATABASE_CHAVE_ADMIN_FIREBASE } from "./dotenv_Info.js";
 
 export const inicializarFirebase = () => {
 
@@ -21,22 +21,22 @@ export const inicializarFirebase = () => {
       console.log("🔍 INSPEÇÃO DE SUPRIMENTOS PARA O BANCO DE DADOS");
       console.log("🔍 arquivo - FirebaseConfig.js");
       console.log("🔍 -----------------------------------------------------------");
-      console.log("🔍 databaseUrlFirebase:", databaseUrlFirebase);
-      console.log("🔍 databaseChaveAdminFirebase  :", databaseChaveAdminFirebase ? "✅ Recebida" : "❌ Vazia");
+      console.log("🔍 DATABASE_URL_FIREBASE:", DATABASE_URL_FIREBASE);
+      console.log("🔍 DATABASE_CHAVE_ADMIN_FIREBASE  :", DATABASE_CHAVE_ADMIN_FIREBASE ? "✅ Recebida" : "❌ Vazia");
       console.log("🔍 -----------------------------------------------------------");
 
         if (!admin.apps.length) {
             
             // 🕵️ Lógica Híbrida Inteligente
-            if (databaseChaveAdminFirebase.trim().startsWith('{')) {
+            if (DATABASE_CHAVE_ADMIN_FIREBASE.trim().startsWith('{')) {
 
                 // MODO NUVEM: O dado já é o JSON em texto
-                serviceAccount = JSON.parse(databaseChaveAdminFirebase);
+                serviceAccount = JSON.parse(DATABASE_CHAVE_ADMIN_FIREBASE);
 
             } else {
 
-                // MODO LOCAL: firebaseChaveJson contém o caminho (ex: ./chave.json)
-                const conteudo = fs.readFileSync(databaseChaveAdminFirebase, 'utf8');
+                // MODO LOCAL: Contém o caminho físico do arquivo (ex: ./chave.json)
+                const conteudo = fs.readFileSync(DATABASE_CHAVE_ADMIN_FIREBASE, 'utf8');
                 serviceAccount = JSON.parse(conteudo);
 
             }
@@ -44,7 +44,7 @@ export const inicializarFirebase = () => {
             admin.initializeApp({
 
                 credential: admin.credential.cert(serviceAccount),
-                databaseURL: databaseUrlFirebase,
+                databaseURL: DATABASE_URL_FIREBASE,
 
             });
 
@@ -66,7 +66,7 @@ export const inicializarFirebase = () => {
             // 🕵️ PAINEL DE DIAGNÓSTICO (Para salvar sua pele em 10 segundos)
             diagnostico: {
                 status: "✅ Conexão Ativa",
-                databaseURL: databaseUrlFirebase,
+                databaseURL: DATABASE_URL_FIREBASE,
                 projetoId: serviceAccount.project_id || config.projectId,
                 
                 // 🚨 SENSOR DE CREDENCIAIS
@@ -93,7 +93,7 @@ export const inicializarFirebase = () => {
             
             diagnostico: {
                 status: "❌ Erro Crítico FireBase",
-                databaseURL: databaseUrlFirebase || "Não definida",
+                databaseURL: DATABASE_URL_FIREBASE || "Não definida",
                 projetoId: "Falha no Carregamento",
                 
                 // 🚨 SENSOR DE CREDENCIAIS (Onde o erro costuma estar)

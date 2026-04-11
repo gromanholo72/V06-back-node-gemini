@@ -4,7 +4,7 @@
 // 🏗️ 👔 1. LOGÍSTICA E SUPRIMENTOS (Importações)
 // ---------------------------------------------------------
 
-import { ipLocalRede, portaServidor, nomeSistema} from "./dotenv_Info.js";
+import { ipLocalRede, PORT, nomeSistema} from "./dotenv_Info.js";
 
 // NÚCLEO DE DADOS (CONFIGURAÇÃO GOOGLE)
 import { inicializarFirebase } from "./FirebaseConfig.js";
@@ -37,7 +37,7 @@ console.log("📐 2. CONFIGURAÇÃO: CARGA DO DOTENV ✅");
 console.log("📐 arquivo - server.js");
 console.log("📐 Sistema     = ", nomeSistema);
 console.log("📐 IP de Rede  = ", ipLocalRede);
-console.log("📐 Porta Ativa = ", portaServidor);
+console.log("📐 Porta Ativa = ", PORT);
 console.log("📐 -----------------------------------------------------------");
 
 
@@ -282,9 +282,9 @@ moduloInfraestrutura(app, firebase.db_admin);
 // ---------------------------------------------------------
 // 🚀 👔 5. STATUS DO SERVIDOR: OPERACIONAL ✅
 // ---------------------------------------------------------
-httpServer.listen(portaServidor, () => {
+httpServer.listen(PORT, () => {
     
-    const urlFinal = `http://${ipLocalRede}:${portaServidor}`;
+    const urlFinal = `http://${ipLocalRede}:${PORT}`;
 
     console.log(""); 
     console.log("🌐 -----------------------------------------------------------"); 

@@ -34,14 +34,14 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 
+// Porta do servidor
+const PORT = process.env.PORT || 3001; 
 
-const portaServidor = process.env.PORT || 3001;
+// 2. SUPRIMENTOS URL FIREBASE
+const DATABASE_URL_FIREBASE = "https://react-vite01-644c9-default-rtdb.firebaseio.com/";
 
-// 2. SUPRIMENTOS FIREBASE
-const databaseUrlFirebase = "https://react-vite01-644c9-default-rtdb.firebaseio.com/";
-
-
-const databaseChaveAdminFirebase = process.env.FIREBASE_CHAVE_JSON_ADMIN ? process.env.FIREBASE_CHAVE_JSON_ADMIN : "❌ Arquivo Ausente";
+// Chave fo administrador do firebase
+const DATABASE_CHAVE_ADMIN_FIREBASE = process.env.FIREBASE_CHAVE_JSON_ADMIN ? process.env.FIREBASE_CHAVE_JSON_ADMIN : "❌ Arquivo Ausente";
 
 // 3. METADADOS DO PROCESSO (MOTOR)
 const versaoNodeMotor = process.version; 
@@ -58,10 +58,10 @@ console.log("");
 console.log("👑 -------------------------------------------------------------------");
 console.log("👑 🏷️  nomeSistema          = ", nomeSistema);
 console.log("👑 🌐 ipLocalRede          = ", ipLocalRede);
-console.log("👑 🔌 portaServidor        = ", portaServidor);
+console.log("👑 🔌 PORT        = ", PORT);
 console.log("👑 -------------------------------------------------------------------"); 
-console.log("👑 🗄️  databaseUrlFirebase  = ", databaseUrlFirebase);
-console.log("👑 🗝️  databaseChaveAdminFirebase    = ", databaseChaveAdminFirebase);
+console.log("👑 🗄️  DATABASE_URL_FIREBASE  = ", DATABASE_URL_FIREBASE);
+console.log("👑 🗝️  databaseChaveAdminFirebase    = ", DATABASE_CHAVE_ADMIN_FIREBASE);
 console.log("👑 -------------------------------------------------------------------");
 console.log("👑 ⚙️  Motor Node      = ", versaoNodeMotor);
 console.log("👑 💻 Plataforma      = ", sistemaOperacional);
@@ -80,8 +80,8 @@ export {
       
       nomeSistema,
       ipLocalRede, 
-      portaServidor,
-      databaseUrlFirebase,     
-      databaseChaveAdminFirebase 
+      PORT,
+      DATABASE_URL_FIREBASE,     
+      DATABASE_CHAVE_ADMIN_FIREBASE 
 
 };
