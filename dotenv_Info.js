@@ -61,7 +61,7 @@ console.log("👑 🌐 ipLocalRede          = ", ipLocalRede);
 console.log("👑 🔌 PORT        = ", PORT);
 console.log("👑 -------------------------------------------------------------------"); 
 console.log("👑 🗄️  DATABASE_URL_FIREBASE  = ", DATABASE_URL_FIREBASE);
-console.log("👑 🗝️  databaseChaveAdminFirebase    = ", DATABASE_CHAVE_ADMIN_FIREBASE);
+console.log("👑 🗝️  DATABASE_CHAVE_ADMIN_FIREBASE    = ", DATABASE_CHAVE_ADMIN_FIREBASE);
 console.log("👑 -------------------------------------------------------------------");
 console.log("👑 ⚙️  Motor Node      = ", versaoNodeMotor);
 console.log("👑 💻 Plataforma      = ", sistemaOperacional);
